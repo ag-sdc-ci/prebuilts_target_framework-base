@@ -1,29 +1,22 @@
-shadow prebuilt repo: framework-base (target)
-  upstream: com.android.ext.framework.base
-  api-level: 34 (branch 34-20261025, rolling 34)
-  blobs: none (zero-blob policy - apex container not tracked)
-  provenance:
-    artifact: com.android.ext.framework.base v14000001
-      (pkgver 14.0.0_r67-1; built in ag-build container Oct 26 2026;
-       /opt/apex/com.android.ext.framework.base@14000001.apex, unzipped
-       apex_payload.img sha256
-       8527ab0e38cf02166224e3e20f260b3cae8262782f2d690b9320b5fb42f8e4a4;
-       published to Forgejo ag-ci apex registry 2026-10-26T15:09:10Z)
-    recipe: prebuilt-project/apex/com.android.ext.framework.base/APEXBUILD
-      sources: ag-sdc/android_frameworks_base (14-21.0-framework-only),
-      LineageOS-TV-x86 android_frameworks_native + android_system_core,
-      LineageOS android_system_incremental_delivery (lineage-21.0)
-      + 000x-*.patch (incfs-sysprop, androidfw-bp2ninja, libutils-host-safe)
-  payload (flattened to shadow root, lib/ -> lib64/):
-    include/ 99 headers: androidfw/ (42), utils/ (49), android/util/ (5,
-      protoutil), util/map_ptr.h, incfs.h, incfs_inline.h, incfs_ndk.h,
-      MountRegistry.h, path.h
-    lib64/: libandroidfw.so, libutils.so, libprotoutil.so, libincfs.so,
-      libincfs-utils.a + x86_64 microarch variant symlinks
-      (-x86_64-{1,2,i386,i486,i586,i686,pentium4,v1,v2})
-  Android.bp: gen_extractive_bp.py --tree-root los-21 + hand-aligned.
-    Declares libandroidfw, libprotoutil, libincfs (shared) + libincfs-utils
-    (static). libutils NOT declared (module name owned by
-    prebuilts_target_core); libutils_headers likewise. pacman libdummy_*
-    provider markers and etc/linker.config.json excluded.
-  date: 2026-10-25
+shadow prebuilt repo: framework-base (target, root-flattened payload)
+  upstream: frameworks/base
+  api-level: 34 (branch 34-20261027, rolling 34)
+  blobs: com.android.ext.framework.base-14000001.apex (zero-blob policy: .apex removed, payload extracted)
+  layout: root-flattened per GEMINI.md:35 and shadow-conventions.md
+    include/ 99 headers: androidfw/ (42), utils/ (49), android/util/ (5, protoutil),
+      util/map_ptr.h, incfs.h, incfs_inline.h, incfs_ndk.h, MountRegistry.h, path.h
+    lib64/: libandroidfw.so, libutils.so, libutils.a, libutils_binder.a,
+      libprotoutil.so, libincfs.so, libincfs-utils.a + x86_64 microarch variants
+  modules:
+    libandroidfw (shared, prefer: true)
+    libprotoutil (shared, prefer: true)
+    libincfs (shared, prefer: true)
+    libincfs-utils (static, prefer: true)
+    libandroidfw_headers, libprotoutil_headers, libincfs_headers
+  ownership note:
+    libutils and libutils_headers are NOT declared here to prevent duplicate-module
+    collisions with prebuilts_target_core (prebuilts/target/system/core).
+    The libutils shared and static payloads are staged in lib64/ for out-of-tree
+    linker resolution (-Llib64).
+  recipe: ag-ci/com.android.ext.framework.base@cbbc7d9
+  date: 2026-10-27
