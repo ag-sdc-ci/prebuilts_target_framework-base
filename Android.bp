@@ -159,8 +159,10 @@ cc_prebuilt_library_static {
 
 android_app_import {
     name: "framework-res",
-    certificate: "platform",
     apk: "share/framework-res/framework-res.apk",
+    srcjar: "share/framework-res/framework-res.srcjar",
+    export_package_resources: true,
+    preprocessed: true,
     prefer: true,
 }
 
