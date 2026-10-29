@@ -152,3 +152,20 @@ cc_prebuilt_library_static {
         "lib64/libincfs-utils.a",
     ],
 }
+
+// -----------------------------------------------------------------------------
+// Core Framework Resources
+// -----------------------------------------------------------------------------
+
+android_app_import {
+    name: "framework-res",
+    certificate: "platform",
+    apk: "share/framework-res/framework-res.apk",
+    prefer: true,
+}
+
+java_import {
+    name: "framework-res-package-jar",
+    jars: ["share/framework-res/framework-res-package.jar"],
+    prefer: true,
+}

@@ -1,22 +1,25 @@
 shadow prebuilt repo: framework-base (target, root-flattened payload)
   upstream: frameworks/base
-  api-level: 34 (branch 34-20261027, rolling 34)
+  api-level: 34 (branch 34-20261029, rolling 34)
   blobs: com.android.ext.framework.base-14000001.apex (zero-blob policy: .apex removed, payload extracted)
   layout: root-flattened per GEMINI.md:35 and shadow-conventions.md
     include/ 99 headers: androidfw/ (42), utils/ (49), android/util/ (5, protoutil),
       util/map_ptr.h, incfs.h, incfs_inline.h, incfs_ndk.h, MountRegistry.h, path.h
     lib64/: libandroidfw.so, libutils.so, libutils.a, libutils_binder.a,
       libprotoutil.so, libincfs.so, libincfs-utils.a + x86_64 microarch variants
+    share/framework-res/: framework-res.apk, framework-res-package.jar, src/ (R.java)
   modules:
     libandroidfw (shared, prefer: true)
     libprotoutil (shared, prefer: true)
     libincfs (shared, prefer: true)
     libincfs-utils (static, prefer: true)
+    framework-res (android_app_import, prefer: true)
+    framework-res-package-jar (java_import, prefer: true)
     libandroidfw_headers, libprotoutil_headers, libincfs_headers
   ownership note:
     libutils and libutils_headers are NOT declared here to prevent duplicate-module
     collisions with prebuilts_target_core (prebuilts/target/system/core).
     The libutils shared and static payloads are staged in lib64/ for out-of-tree
     linker resolution (-Llib64).
-  recipe: ag-ci/com.android.ext.framework.base@cbbc7d9
-  date: 2026-10-27
+  recipe: com.android.ext.framework.base
+  date: 2026-10-29
