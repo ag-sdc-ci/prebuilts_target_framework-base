@@ -204,3 +204,49 @@ java_import {
     jars: ["share/framework-res/framework-res-package.jar"],
     prefer: true,
 }
+
+// -----------------------------------------------------------------------------
+// Framework API Stubs
+// -----------------------------------------------------------------------------
+
+java_import {
+    name: "framework-graphics.stubs.module_lib",
+    jars: ["share/framework-stubs/framework-graphics.jar"],
+    sdk_version: "module_current",
+    visibility: ["//visibility:public"],
+}
+
+java_import {
+    name: "framework-wifi.stubs.module_lib",
+    jars: ["share/framework-stubs/framework-wifi.jar"],
+    sdk_version: "module_current",
+    visibility: ["//visibility:public"],
+}
+
+java_import {
+    name: "framework-bluetooth.stubs.module_lib",
+    jars: ["share/framework-stubs/framework-bluetooth.jar"],
+    sdk_version: "module_current",
+    visibility: ["//visibility:public"],
+}
+
+java_import {
+    name: "framework-media.stubs.module_lib",
+    jars: ["share/framework-stubs/framework-media.jar"],
+    sdk_version: "module_current",
+    visibility: ["//visibility:public"],
+}
+
+java_import {
+    name: "framework-statsd.stubs.module_lib",
+    jars: ["share/framework-stubs/framework-statsd.jar"],
+    sdk_version: "module_current",
+    visibility: ["//visibility:public"],
+}
+
+java_import {
+    name: "framework-virtualization.stubs.module_lib",
+    jars: ["share/framework-stubs/framework-virtualization.jar"],
+    sdk_version: "module_current",
+    visibility: ["//visibility:public"],
+}
