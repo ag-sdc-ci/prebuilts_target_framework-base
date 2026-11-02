@@ -153,6 +153,39 @@ cc_prebuilt_library_static {
     ],
 }
 
+cc_prebuilt_library_shared {
+    name: "libandroid_runtime",
+    host_supported: true,
+    check_elf_files: false,
+    export_include_dirs: [
+        "include",
+    ],
+    prefer: true,
+    apex_available: [
+        "//apex_available:anyapex",
+        "//apex_available:platform",
+    ],
+    srcs: [
+        "lib64/libandroid_runtime.so",
+    ],
+}
+
+cc_prebuilt_library_shared {
+    name: "libandroid_servers",
+    check_elf_files: false,
+    export_include_dirs: [
+        "include",
+    ],
+    prefer: true,
+    apex_available: [
+        "//apex_available:anyapex",
+        "//apex_available:platform",
+    ],
+    srcs: [
+        "lib64/libandroid_servers.so",
+    ],
+}
+
 // -----------------------------------------------------------------------------
 // Core Framework Resources
 // -----------------------------------------------------------------------------
