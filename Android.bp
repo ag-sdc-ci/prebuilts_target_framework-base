@@ -212,6 +212,7 @@ java_import {
 java_import {
     name: "framework-graphics.stubs.module_lib",
     jars: ["share/framework-stubs/framework-graphics.jar"],
+    prefer: true,
     sdk_version: "module_current",
     visibility: ["//visibility:public"],
 }
@@ -219,6 +220,7 @@ java_import {
 java_import {
     name: "framework-wifi.stubs.module_lib",
     jars: ["share/framework-stubs/framework-wifi.jar"],
+    prefer: true,
     sdk_version: "module_current",
     visibility: ["//visibility:public"],
 }
@@ -226,6 +228,23 @@ java_import {
 java_import {
     name: "framework-bluetooth.stubs.module_lib",
     jars: ["share/framework-stubs/framework-bluetooth.jar"],
+    prefer: true,
+    sdk_version: "module_current",
+    visibility: ["//visibility:public"],
+}
+
+java_import {
+    name: "framework-bluetooth.stubs.system",
+    jars: ["share/framework-stubs/framework-bluetooth.jar"],
+    prefer: true,
+    sdk_version: "system_current",
+    visibility: ["//visibility:public"],
+}
+
+java_import {
+    name: "framework-bluetooth",
+    jars: ["share/framework-stubs/framework-bluetooth.jar"],
+    prefer: true,
     sdk_version: "module_current",
     visibility: ["//visibility:public"],
 }
@@ -233,6 +252,23 @@ java_import {
 java_import {
     name: "framework-media.stubs.module_lib",
     jars: ["share/framework-stubs/framework-media.jar"],
+    prefer: true,
+    sdk_version: "module_current",
+    visibility: ["//visibility:public"],
+}
+
+java_import {
+    name: "framework-media.stubs.system",
+    jars: ["share/framework-stubs/framework-media.jar"],
+    prefer: true,
+    sdk_version: "system_current",
+    visibility: ["//visibility:public"],
+}
+
+java_import {
+    name: "framework-media",
+    jars: ["share/framework-stubs/framework-media.jar"],
+    prefer: true,
     sdk_version: "module_current",
     visibility: ["//visibility:public"],
 }
@@ -240,6 +276,7 @@ java_import {
 java_import {
     name: "framework-statsd.stubs.module_lib",
     jars: ["share/framework-stubs/framework-statsd.jar"],
+    prefer: true,
     sdk_version: "module_current",
     visibility: ["//visibility:public"],
 }
@@ -247,6 +284,55 @@ java_import {
 java_import {
     name: "framework-virtualization.stubs.module_lib",
     jars: ["share/framework-stubs/framework-virtualization.jar"],
+    prefer: true,
+    sdk_version: "module_current",
+    visibility: ["//visibility:public"],
+}
+
+java_import {
+    name: "framework-permission-s.stubs.module_lib",
+    jars: ["share/framework-stubs/framework-permission-s.jar"],
+    prefer: true,
+    sdk_version: "module_current",
+    visibility: ["//visibility:public"],
+}
+
+java_import {
+    name: "framework-permission-s.stubs.system",
+    jars: ["share/framework-stubs/framework-permission-s.jar"],
+    prefer: true,
+    sdk_version: "system_current",
+    visibility: ["//visibility:public"],
+}
+
+java_import {
+    name: "framework-permission-s",
+    jars: ["share/framework-stubs/framework-permission-s.jar"],
+    prefer: true,
+    sdk_version: "module_current",
+    visibility: ["//visibility:public"],
+}
+
+java_import {
+    name: "framework-nfc.stubs.module_lib",
+    jars: ["share/framework-stubs/framework-nfc.jar"],
+    prefer: true,
+    sdk_version: "module_current",
+    visibility: ["//visibility:public"],
+}
+
+java_import {
+    name: "framework-nfc.stubs.system",
+    jars: ["share/framework-stubs/framework-nfc.jar"],
+    prefer: true,
+    sdk_version: "system_current",
+    visibility: ["//visibility:public"],
+}
+
+java_import {
+    name: "framework-nfc",
+    jars: ["share/framework-stubs/framework-nfc.jar"],
+    prefer: true,
     sdk_version: "module_current",
     visibility: ["//visibility:public"],
 }
